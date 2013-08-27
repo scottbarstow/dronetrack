@@ -1,0 +1,16 @@
+{
+  "name": "node-dronetrack",
+  "version": "0.0.1",
+  "homepage": "",
+  "author": "",
+  "description": "",
+  "contributors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "dependencies": {
+    "superagent": ">=0.15.4"
+  }
+}
