@@ -17,3 +17,5 @@ class Drone extends RestService
             r = r.attach("file#{i}", file)
             i += 1
         r.end(@processResult.bind(this, callback)) 
+
+module.exports = Drone        

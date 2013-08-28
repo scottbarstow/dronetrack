@@ -1,0 +1,4 @@
+{
+    "baseUrl": "localhost:3000",
+    "accessToken": "111111"
+}
