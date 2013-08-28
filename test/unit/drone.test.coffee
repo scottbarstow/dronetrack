@@ -1,8 +1,19 @@
 Drone = require("../..").Drone
-
+path = require "path"
 config = require "../config"
 
 drone = new Drone(config.baseUrl, config.accessToken)
+
+createDrone = ->
+    before (done)->
+            drone.create {name: "new Drone"}, (err, i)=>
+                return done err if err?  
+                @droneId = i.id
+                done()
+    after (done)->
+        drone.remove @droneId, done
+
+
 describe "Drone", ->
     
     describe "all()", ->
@@ -80,3 +91,43 @@ describe "Drone", ->
             drone.remove "id",  (err, item)->
                 err.should.be.ok
                 done()      
+
+    describe "addPoints()", ->
+        createDrone()
+        it "should create new track and add points to it if trackId is missing", (done)->
+            drone.addPoints @droneId, [{latitude: 1, longitude: 1}, {latitude: 2, longitude: 2}], (err, res)->
+                return done err if err?  
+                res.trackId.should.be.ok
+                done()
+        it "should add points to exisiting track", (done)->
+            drone.addPoints @droneId, [{latitude: 1, longitude: 1}, {latitude: 2, longitude: 2}], (err, res)=>
+                return done err if err?  
+                trackId = res.trackId
+                trackId.should.be.ok
+                drone.addPoints @droneId, trackId, [{latitude: 3, longitude: 3}, {latitude: 4, longitude: 4}], (err, res)=>
+                    return done err if err?  
+                    res.trackId.should.equal trackId
+                    done()        
+
+        it "should fail for non-exising drone", (done)->
+            drone.addPoints "id", [{latitude: 1, longitude: 1}, {latitude: 2, longitude: 2}], (err, res)=>
+                err.should.be.ok
+                done()
+
+        it "should fail for non-exising track", (done)->
+            drone.addPoints @droneId, "trackId", [{latitude: 1, longitude: 1}, {latitude: 2, longitude: 2}], (err, res)=>
+                err.should.be.ok
+                done() 
+
+    describe "importPointsFromFiles()", ->                     
+        createDrone()
+        it "should create new tracks and add points for each csv file", (done)->
+            files = [path.join(__dirname, "test1.csv"), path.join(__dirname, "test2.csv")]
+            drone.importPointsFromFiles @droneId, files, "csv", (err, res)->
+                return done err if err?
+                done()
+        it "should create new tracks and add points for each kml file", (done)->
+            files = [path.join(__dirname, "test1.kml")]
+            drone.importPointsFromFiles @droneId, files, "kml", (err, res)->
+                return done err if err?
+                done()       

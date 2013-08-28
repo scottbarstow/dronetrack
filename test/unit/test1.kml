@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>2012-09-15</name>
+    <description>21.1 km Running</description>
+    <Style id="redLine">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>4</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7f00ff00</color>
+      </PolyStyle>
+    </Style>
+    <Placemark>
+      <name>2012-09-15</name>
+      <description>21.1 km Running</description>
+      <styleUrl>#redLine</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>clampToGround</altitudeMode>
+        <coordinates>
+          -71.083963,42.363458,3.0
+          -71.083828,42.363452,3.0
+          -71.083668,42.363443,3.0
+          -71.083522,42.363429,3.22222222222222
+          -71.083399,42.363401,3.4
+          -71.083284,42.36337,3.54545454545455
+          -71.083136,42.363322,3.72727272727273
+          -71.082963,42.363273,3.90909090909091
+          -71.08279,42.363218,4.09090909090909
+          -71.082675,42.363181,4.18181818181818
+          -71.082526,42.363148,4.27272727272727
+          -71.082408,42.36311,4.36363636363636
+          -71.079023,42.362639,9.27272727272727
+          -71.078902,42.362675,8.27272727272727
+          -71.078808,42.362748,7.09090909090909
+          -71.078682,42.362799,5.90909090909091
+          -71.078261,42.362788,0.0
+          -71.078363,42.362849,0.0
+          -71.078363,42.36285,0.0
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

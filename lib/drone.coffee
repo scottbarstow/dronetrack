@@ -4,7 +4,11 @@ class Drone extends RestService
     constructor: (@baseUrl, @accessToken)->
         super("/drone")
 
-    addPoints: (id, trackId=null, points, callback)->    
+    addPoints: (id, trackId, points, callback)->    
+        if arguments.length == 3
+            callback = points
+            points = trackId
+            trackId = null
         @createRequest("#{@url}/#{id}/points", "post").send({trackId: trackId, points: (points || [])}).end(@processResult.bind(this, callback))
 
     importPointsFromFiles: (id, files, format, callback)->    
