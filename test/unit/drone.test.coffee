@@ -69,7 +69,7 @@ describe "Drone", ->
                             done()
                     
         it "should fail if drone is not exists", (done)->
-            drone.get {id: "id", name:"Drone"}, (err, item)->
+            drone.update {id: "id", name:"Drone"}, (err, item)->
                 err.should.be.ok
                 done()            
     

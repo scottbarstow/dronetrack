@@ -5,7 +5,7 @@ class Track extends RestService
         super("/track") 
 
     getPoints: (id, callback)->       
-        @createRequest("#{@url}/#{id}/points").end(processResult.bind(this, callback))
+        @createRequest("#{@url}/#{id}/points").end(@processResult.bind(this, callback))
 
     addPoints: (id, points, callback)->    
         @createRequest("#{@url}/#{id}/points", "post").send(points).end(@processResult.bind(this, callback))    
