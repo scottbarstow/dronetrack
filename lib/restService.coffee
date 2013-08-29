@@ -11,23 +11,11 @@ class RestService
         if @baseUrl.length > 0 && @baseUrl[@baseUrl.length - 1] == "/"
             @baseUrl = @baseUrl.substr(0, @baseUrl.length - 1)
         @url = "#{@baseUrl}#{path}"
+        @processResult = RestService.processResult
     
     createRequest: (url, method = "get")->
         method = method.toLowerCase();
         superagent[method](url).setAccessToken(@accessToken).set("accept", "application/json")   
-    processResult: (callback, err, res)->
-        return callback err if err?
-        if res.body? && Object.keys(res.body).length > 0
-            r = res.body
-            if res.statusCode >= 400
-                return callback new Error r.error if r.error? 
-                callback new Error("Http error #{res.statusCode}")    
-            callback null, r    
-        else
-            if res.statusCode >= 400
-                callback new Error(res.text)    
-            else    
-                callback()
 
     all: (query, callback)->
         if arguments.length == 1
@@ -50,5 +38,20 @@ class RestService
 
     destroy: (id, callback)->    # alias to remove
         @remove id, callback
+
+RestService.processResult = (callback, err, res)->
+    return callback err if err?
+    if res.body? && Object.keys(res.body).length > 0
+        r = res.body
+        if res.statusCode >= 400
+            return callback new Error r.error if r.error? 
+            callback new Error("Http error #{res.statusCode}")    
+        callback null, r    
+    else
+        if res.statusCode >= 400
+            callback new Error(res.text)    
+        else    
+            callback()
+
 
 module.exports = RestService       
