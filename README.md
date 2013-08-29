@@ -5,8 +5,7 @@ This is a simple node module for integrating with the Dronetrack  API
 # Pre-Requisites and Installation
 ## Prerequisites
 
-You will need to create an account on Dronetrack and get clientId, clientSecret and redirect url to receive access tiken value.
-This client presumes you have a valid account and API token already configured
+You will need to create an account on Dronetrack and get clientId, clientSecret and redirect url to receive access token value.
 
 ## Installation 
 ```shell
@@ -153,7 +152,7 @@ var auth = new dronetrack.OAuthHelper('baseUrl', 'clientId', 'clientSecret', 're
 auth.getAccessToken(function(url, callback){
     // You should redirect to this 'url' (for web apps) or open this 'url' in browser (for other apps)
     // User will sign in on Dronetrack site (if need) and confirm decision to allow your app to work with Dronetrack API.
-    // Then Dronetrack site will redirect user to 'redirectUrl' putting authorization code value as query parameter 'code' (for web apps)
+    // Then Dronetrack site will redirect user to 'redirectUrl' putting pin code value as query parameter 'code' (for web apps)
     // If your 'redirectUrl' is 'http://localhost' (for non-web apps) pin code will be shown to user. You should promt to enter this value by user.
     // Anyway you should pass this code as second parameter of callback function (like callback(null, code);)
 }, function(err, accessToken));
