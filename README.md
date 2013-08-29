@@ -55,13 +55,13 @@ droneApi.update({id: id, name: 'name'}, function(err, drone){...});
 droneApi.remove(id, function(err){...});
 ```
 
-### Addining points to new or exisiting track of drone
+### Adding points to new or exisiting track of drone
 ```
 // Adding points to new track
-droneApi.addPoints(id, [{latitude: latitude, longitude: longitude}, ...], function(err, res){ /* res.trackId will be contain id of created track */...}); 
+droneApi.addPoints(id, [{latitude: latitude, longitude: longitude, timestamp: timestamp}, ...], function(err, res){ /* res.trackId will be contain id of created track */...}); 
 
 // Adding points to exisiting track
-droneApi.addPoints(id, trackId, [{latitude: latitude, longitude: longitude}, ...], function(err){...}); 
+droneApi.addPoints(id, trackId, [{latitude: latitude, longitude: longitude, timestamp: timestamp }, ...], function(err){...}); 
 
 ```
 
@@ -118,10 +118,10 @@ trackApi.remove(id, function(err){...});
 trackApi.getPoints(id, function(err, points){...});
 ```
 
-### Addining points to track
+### Adding points to track
 ```
 // Adding points to new track
-trackApi.addPoints(id, [{latitude: latitude, longitude: longitude}, ...], function(err, points){...}); 
+trackApi.addPoints(id, [{latitude: latitude, longitude: longitude, timestamp: timestamp}, ...], function(err, points){...}); 
 
 ```
 
