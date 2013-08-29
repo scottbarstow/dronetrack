@@ -1,21 +1,34 @@
 {
-    "name": "node-dronetrack",
-    "version": "0.0.1",
-    "author": "Andrey Belchikov",
-    "description": "Node.js module which provides an Dronetrack API client",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/scottbarstow/node-dronetrack.git"
-    },
-    "dependencies": {
-        "superagent": "~0.15.4"
-    },
-    "devDependencies": {
-        "mocha": "~1.8.1",
-        "should": "~1.2.2",
-        "zombie": "~1.4.1"
-    },
-    "scripts": {
-        "test": "sh ./runTests.sh"
-    }
+  "name": "dronetrack",
+  "version": "0.0.1",
+  "author": "Andrey Belchikov",
+  "description": "Node.js module which provides an Dronetrack API client",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottbarstow/node-dronetrack.git"
+  },
+  "dependencies": {
+    "superagent": "~0.15.4"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.1",
+    "should": "~1.2.2",
+    "zombie": "~1.4.1"
+  },
+  "scripts": {
+    "test": "sh ./runTests.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/scottbarstow/node-dronetrack/issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "dronetrack",
+    "drone",
+    "drones",
+    "track"
+  ],
 }
