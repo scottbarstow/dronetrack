@@ -1,6 +1,5 @@
 {
     "baseUrl": "http://localhost:3000",
-    "accessToken": "111111",
     
     "__comment": "redirect url must be http://localhost for this clientId",
     "clientId": "",
