@@ -120,7 +120,6 @@ trackApi.getPoints(id, function(err, points){...});
 
 ### Adding points to track
 ```
-// Adding points to new track
 trackApi.addPoints(id, [{latitude: latitude, longitude: longitude, timestamp: timestamp}, ...], function(err, points){...}); 
 
 ```
